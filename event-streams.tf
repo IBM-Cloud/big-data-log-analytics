@@ -1,5 +1,5 @@
 resource "ibm_resource_instance" "es" {
-  name              = "${local.basename}-es"
+  name              = "log-analysis-es"
   service           = "messagehub"
   plan              = "standard"
   location          = var.region
@@ -7,7 +7,7 @@ resource "ibm_resource_instance" "es" {
   tags              = var.tags
 }
 
-resource "ibm_resource_key" "es-for-log-analysis" {
+resource "ibm_resource_key" "es_for_log_analysis" {
   name                 = "es-for-log-analysis"
   role                 = "Writer"
   resource_instance_id = ibm_resource_instance.es.crn
@@ -35,7 +35,7 @@ resource "null_resource" "event_streams_webserver_topic" {
       "-H 'Authorization: ${data.ibm_iam_auth_token.tokendata.iam_access_token}'",
       "--data",
       "'{ \"name\": \"webserver\", \"partitions\": 1}'",
-      "${ibm_resource_key.es-for-log-analysis.credentials.kafka_admin_url}/admin/topics"
+      "${ibm_resource_key.es_for_log_analysis.credentials.kafka_admin_url}/admin/topics"
     ])
   }
 }

@@ -1,5 +1,5 @@
 resource "ibm_resource_instance" "cos" {
-  name              = "${local.basename}-cos"
+  name              = "log-analysis-cos"
   service           = "cloud-object-storage"
   plan              = "standard"
   location          = "global"

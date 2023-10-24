@@ -1,5 +1,5 @@
 resource "ibm_resource_instance" "kms" {
-  name              = "${local.basename}-kp"
+  name              = "log-analysis-kp"
   service           = "kms"
   plan              = "tiered-pricing"
   location          = var.region

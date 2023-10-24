@@ -1,5 +1,5 @@
 resource "ibm_resource_instance" "sql_query" {
-  name              = "${local.basename}-sql"
+  name              = "log-analysis-sql"
   service           = "sql-query"
   plan              = "standard"
   location          = var.region

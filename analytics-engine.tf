@@ -1,5 +1,5 @@
 resource "ibm_resource_instance" "iae" {
-  name              = "${local.basename}-iae"
+  name              = "log-analysis-iae"
   service           = "ibmanalyticsengine"
   plan              = "standard-serverless-spark"
   location          = var.region

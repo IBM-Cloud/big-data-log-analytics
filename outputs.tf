@@ -1,10 +1,10 @@
 output "kcat_config" {
   value = nonsensitive(<<EOT
-bootstrap.servers=${ibm_resource_key.es-for-log-analysis.credentials.bootstrap_endpoints}
+bootstrap.servers=${ibm_resource_key.es_for_log_analysis.credentials.bootstrap_endpoints}
 sasl.mechanism=PLAIN
 security.protocol=SASL_SSL
 sasl.username=token
-sasl.password=${ibm_resource_key.es-for-log-analysis.credentials.password}
+sasl.password=${ibm_resource_key.es_for_log_analysis.credentials.password}
 EOT
   )
 }

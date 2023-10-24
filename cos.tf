@@ -32,3 +32,17 @@ resource "ibm_cos_bucket" "bucket" {
   region_location      = var.region
   kms_key_crn          = ibm_kms_key.root.crn
 }
+
+
+resource "ibm_cos_bucket_object" "hello" {
+  bucket_crn = ibm_cos_bucket.bucket.crn
+  bucket_location = ibm_cos_bucket.bucket.region_location
+  key = "hello.py"
+  content = <<EOT
+def main():
+  print("hello world")
+
+if __name__ == '__main__':
+  main()
+EOT
+}

@@ -23,6 +23,7 @@ resource "ibm_iam_authorization_policy" "sql_query_to_kms" {
   target_service_name         = "kms"
   target_resource_instance_id = ibm_resource_instance.kms.guid
   roles = [
-    "Reader"
+    "Reader",
+    "ReaderPlus"
   ]
 }

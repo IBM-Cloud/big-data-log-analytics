@@ -11,13 +11,13 @@ EOT
 
 output "iae_01_env_variables" {
   value = <<EOT
-REGION=${var.region}
-RESOURCE_GROUP_NAME=${ibm_resource_group.group.name}
-GUID=${ibm_resource_instance.iae.guid}
-COS_BUCKET_NAME=${ibm_cos_bucket.bucket.bucket_name}
-ENDPOINT=${ibm_cos_bucket.bucket.s3_endpoint_direct}
-ACCESS_KEY=${nonsensitive(ibm_resource_key.cos_for_log_analysis.credentials["cos_hmac_keys.access_key_id"])}
-SECRET_KEY=${nonsensitive(ibm_resource_key.cos_for_log_analysis.credentials["cos_hmac_keys.secret_access_key"])}
+export REGION=${var.region}
+export RESOURCE_GROUP_NAME=${ibm_resource_group.group.name}
+export GUID=${ibm_resource_instance.iae.guid}
+export COS_BUCKET_NAME=${ibm_cos_bucket.bucket.bucket_name}
+export ENDPOINT=${ibm_cos_bucket.bucket.s3_endpoint_direct}
+export ACCESS_KEY=${nonsensitive(ibm_resource_key.cos_for_log_analysis.credentials["cos_hmac_keys.access_key_id"])}
+export SECRET_KEY=${nonsensitive(ibm_resource_key.cos_for_log_analysis.credentials["cos_hmac_keys.secret_access_key"])}
 EOT
 }
 
